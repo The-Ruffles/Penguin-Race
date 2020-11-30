@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SimpleCharacterController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Variable list
     public CharacterController controller;
     public float moveSpeed = 10;
     float currentSpeed;
@@ -17,12 +17,17 @@ public class SimpleCharacterController : MonoBehaviour
     public float speedBuff, speedDebuff;
     bool isGrounded;
     Vector3 startingPosition;
-    public string nextSceneName;
     GameObject fish, completedLevelPanel;
     LevelManager levelManager;
     public float fishCooldown = 5f;
 
-// Update is called once per frame
+    /*  
+        start method
+
+        assigning player transfrom to a variable
+        assigning move speed to current speed
+        getting the script from the object with tag
+    */
     
     void Start()
     {
@@ -44,7 +49,9 @@ public class SimpleCharacterController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        if (!levelManager.isCountdownTimerActive)
+        
+        //if countdown timer is active, no movement allowed
+        if (!levelManager.isCountdownTimerActive && !levelManager.levelFinished)
         {
             controller.Move(move * currentSpeed * Time.deltaTime);
 
@@ -87,6 +94,7 @@ public class SimpleCharacterController : MonoBehaviour
                 {
                     Debug.Log("FINISHED!!!!!");
                     // Links to level manager
+                    //calls method
                     levelManager.LevelFinished(levelManager.completedLevelPanel);
                 }
         if (hit.gameObject.CompareTag("PlatformDestroy"))
@@ -100,6 +108,13 @@ public class SimpleCharacterController : MonoBehaviour
        yield return new WaitForSeconds(1f);
        Destroy(other);
     }
+    /*  
+        Fish mechanic method
+        
+        making a method that can be used in both buff/debuff
+        changed speed by the speed muliplier variable
+        started cooldown till the effect wears off
+    */
     void FishMechanic(float speedMultiplier)
     {
         Destroy(fish);
@@ -107,6 +122,7 @@ public class SimpleCharacterController : MonoBehaviour
         currentSpeed = moveSpeed * speedMultiplier;
         StartCoroutine("FishTimer");
     }
+    //what to do after fish timer finishes. basically resets current speed to original speed
     IEnumerator FishTimer()
     {
        yield return new WaitForSeconds(fishCooldown);

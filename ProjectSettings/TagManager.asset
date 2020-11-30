@@ -9,6 +9,7 @@ TagManager:
   - GoodFish
   - BadFish
   - Igloo
+  - LevelManager
   layers:
   - Default
   - TransparentFX

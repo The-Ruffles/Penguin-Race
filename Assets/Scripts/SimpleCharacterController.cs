@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +18,8 @@ public class SimpleCharacterController : MonoBehaviour
     bool isGrounded;
     Vector3 startingPosition;
     public string nextSceneName;
-    GameObject fish;
+    GameObject fish, levelManagerGO, completedLevelPanel;
+    LevelManager levelManager;
     public float fishCooldown = 5f;
 
 // Update is called once per frame
@@ -28,6 +28,9 @@ public class SimpleCharacterController : MonoBehaviour
     {
         startingPosition = transform.position;
         currentSpeed = moveSpeed;
+        levelManagerGO = GameObject.FindWithTag("LevelManager");
+        levelManager = levelManagerGO.GetComponent<LevelManager>();
+
     }
     void Update()
     {
@@ -42,11 +45,14 @@ public class SimpleCharacterController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (!levelManager.isCountdownTimerActive)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
+            controller.Move(move * currentSpeed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
+            }
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -57,6 +63,7 @@ public class SimpleCharacterController : MonoBehaviour
     {
         if (hit.gameObject.CompareTag ("Sea"))
                 {
+                    //add buzzer here...
                     currentSpeed = moveSpeed;
                     transform.position = startingPosition;
                 }
@@ -65,6 +72,7 @@ public class SimpleCharacterController : MonoBehaviour
                 {
                     Debug.Log("Speed buff");
                     fish = hit.gameObject;
+                    //add lights here(idealy in function tho)...
                     FishMechanic(speedBuff);
                 }
         
@@ -72,15 +80,16 @@ public class SimpleCharacterController : MonoBehaviour
                 {
                     Debug.Log("Speed Debuff");
                     fish = hit.gameObject;
+                    //add lights here(idealy in function tho)...
                     FishMechanic(speedDebuff);
                 }
 
         if (hit.gameObject.CompareTag ("Igloo"))
                 {
                     Debug.Log("FINISHED!!!!!");
-                    SceneManager.LoadScene(nextSceneName);
+                    // Links to level manager
+                    levelManager.LevelFinished(levelManager.completedLevelPanel);
                 }
-
         if (hit.gameObject.CompareTag("PlatformDestroy"))
         {
             Debug.Log("Falling! AHHHH!!!!");
@@ -95,6 +104,7 @@ public class SimpleCharacterController : MonoBehaviour
     void FishMechanic(float speedMultiplier)
     {
         Destroy(fish);
+        //add lights here (prefered)
         currentSpeed = moveSpeed * speedMultiplier;
         StartCoroutine("FishTimer");
     }

@@ -18,7 +18,7 @@ public class SimpleCharacterController : MonoBehaviour
     bool isGrounded;
     Vector3 startingPosition;
     public string nextSceneName;
-    GameObject fish, levelManagerGO, completedLevelPanel;
+    GameObject fish, completedLevelPanel;
     LevelManager levelManager;
     public float fishCooldown = 5f;
 
@@ -28,8 +28,7 @@ public class SimpleCharacterController : MonoBehaviour
     {
         startingPosition = transform.position;
         currentSpeed = moveSpeed;
-        levelManagerGO = GameObject.FindWithTag("LevelManager");
-        levelManager = levelManagerGO.GetComponent<LevelManager>();
+        levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
 
     }
     void Update()

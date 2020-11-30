@@ -6234,7 +6234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   isCountdownTimerActive: 1
-  levelTime: 60
+  levelTime: 30
   countdownTimer: 3
   levelTimer_TMP: {fileID: 1407584499}
   countdowntimer_TMP: {fileID: 1408795601}

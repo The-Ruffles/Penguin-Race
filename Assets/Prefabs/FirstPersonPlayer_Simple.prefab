@@ -75,7 +75,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.8
+  m_Height: 1.82
   m_Radius: 0.6
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -95,14 +95,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 557962098947172928}
-  moveSpeed: 10
+  moveSpeed: 5
   gravity: -9.8
-  jumpHeight: 5
+  jumpHeight: 0.5
   groundCheck: {fileID: 557962098704125858}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  speedBuff: 1.75
+  speedDebuff: 0.75
+  nextSceneName: 
+  fishCooldown: 5
 --- !u!1 &557962099998484406
 GameObject:
   m_ObjectHideFlags: 0

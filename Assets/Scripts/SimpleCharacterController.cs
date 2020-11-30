@@ -8,26 +8,26 @@ public class SimpleCharacterController : MonoBehaviour
     // Start is called before the first frame update
     public CharacterController controller;
     public float moveSpeed = 10;
+    float currentSpeed;
     public float gravity = -9.8f;
     public float jumpHeight = 33;
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
     Vector3 velocity;
-
+    public float speedBuff, speedDebuff;
     bool isGrounded;
-
     Vector3 startingPosition;
-
     public string nextSceneName;
-
     GameObject fish;
+    public float fishCooldown = 5f;
 
 // Update is called once per frame
     
     void Start()
     {
-        startingPosition = transform.position;    
+        startingPosition = transform.position;
+        currentSpeed = moveSpeed;
     }
     void Update()
     {
@@ -42,7 +42,7 @@ public class SimpleCharacterController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        controller.Move(move * currentSpeed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -57,21 +57,22 @@ public class SimpleCharacterController : MonoBehaviour
     {
         if (hit.gameObject.CompareTag ("Sea"))
                 {
+                    currentSpeed = moveSpeed;
                     transform.position = startingPosition;
                 }
 
         if (hit.gameObject.CompareTag ("GoodFish"))
                 {
-                    //Speed increases
+                    Debug.Log("Speed buff");
                     fish = hit.gameObject;
-                    FishMechanic(1.2f);
+                    FishMechanic(speedBuff);
                 }
         
         if (hit.gameObject.CompareTag ("BadFish"))
                 {
-                    //Speed decreases
+                    Debug.Log("Speed Debuff");
                     fish = hit.gameObject;
-                    FishMechanic(1.2f);
+                    FishMechanic(speedDebuff);
                 }
 
         if (hit.gameObject.CompareTag ("Igloo"))
@@ -94,5 +95,13 @@ public class SimpleCharacterController : MonoBehaviour
     void FishMechanic(float speedMultiplier)
     {
         Destroy(fish);
+        currentSpeed = moveSpeed * speedMultiplier;
+        StartCoroutine("FishTimer");
+    }
+    IEnumerator FishTimer()
+    {
+       yield return new WaitForSeconds(fishCooldown);
+       currentSpeed = moveSpeed;
+       Debug.Log("Speed Reset");
     }
 }

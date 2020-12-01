@@ -92,14 +92,12 @@ public class SimpleCharacterController : MonoBehaviour
 
         if (hit.gameObject.CompareTag ("Igloo"))
                 {
-                    Debug.Log("FINISHED!!!!!");
                     // Links to level manager
                     //calls method
                     levelManager.LevelFinished(levelManager.completedLevelPanel);
                 }
         if (hit.gameObject.CompareTag("PlatformDestroy"))
         {
-            Debug.Log("Falling! AHHHH!!!!");
             StartCoroutine("DelayedDestroy", hit.gameObject);
         }      
     }

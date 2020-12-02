@@ -6,6 +6,7 @@ public class SimpleCharacterController : MonoBehaviour
 {
     // Variable list
     public CharacterController controller;
+    public SerialController serialController;
     public float moveSpeed = 10;
     float currentSpeed;
     public float gravity = -9.8f;
@@ -15,6 +16,7 @@ public class SimpleCharacterController : MonoBehaviour
     public LayerMask groundMask;
     Vector3 velocity;
     public float speedBuff, speedDebuff;
+    public string redLightName, yellowLightName, allLightsOffName;
     bool isGrounded;
     Vector3 startingPosition;
     GameObject fish, completedLevelPanel;
@@ -31,6 +33,7 @@ public class SimpleCharacterController : MonoBehaviour
     
     void Start()
     {
+        serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
         startingPosition = transform.position;
         currentSpeed = moveSpeed;
         levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
@@ -79,7 +82,7 @@ public class SimpleCharacterController : MonoBehaviour
                     Debug.Log("Speed buff");
                     fish = hit.gameObject;
                     //add lights here(idealy in function tho)...
-                    FishMechanic(speedBuff);
+                    FishMechanic(speedBuff, redLightName);
                 }
         
         if (hit.gameObject.CompareTag ("BadFish"))
@@ -87,7 +90,7 @@ public class SimpleCharacterController : MonoBehaviour
                     Debug.Log("Speed Debuff");
                     fish = hit.gameObject;
                     //add lights here(idealy in function tho)...
-                    FishMechanic(speedDebuff);
+                    FishMechanic(speedDebuff, yellowLightName);
                 }
 
         if (hit.gameObject.CompareTag ("Igloo"))
@@ -113,10 +116,11 @@ public class SimpleCharacterController : MonoBehaviour
         changed speed by the speed muliplier variable
         started cooldown till the effect wears off
     */
-    void FishMechanic(float speedMultiplier)
+    void FishMechanic(float speedMultiplier, string lightColour)
     {
         Destroy(fish);
         //add lights here (prefered)
+        serialController.SendSerialMessage(lightColour);
         currentSpeed = moveSpeed * speedMultiplier;
         StartCoroutine("FishTimer");
     }
@@ -125,6 +129,7 @@ public class SimpleCharacterController : MonoBehaviour
     {
        yield return new WaitForSeconds(fishCooldown);
        currentSpeed = moveSpeed;
+       serialController.SendSerialMessage(allLightsOffName);
        Debug.Log("Speed Reset");
     }
 }

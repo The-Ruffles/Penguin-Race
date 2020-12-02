@@ -73,8 +73,10 @@ public class SimpleCharacterController : MonoBehaviour
         if (hit.gameObject.CompareTag ("Sea"))
                 {
                     //add buzzer here...
+                    TurnLightsOff();
                     currentSpeed = moveSpeed;
                     transform.position = startingPosition;
+
                 }
 
         if (hit.gameObject.CompareTag ("GoodFish"))
@@ -118,7 +120,9 @@ public class SimpleCharacterController : MonoBehaviour
     */
     void FishMechanic(float speedMultiplier, string lightColour)
     {
+        
         Destroy(fish);
+        TurnLightsOff();
         //add lights here (prefered)
         serialController.SendSerialMessage(lightColour);
         currentSpeed = moveSpeed * speedMultiplier;
@@ -128,8 +132,13 @@ public class SimpleCharacterController : MonoBehaviour
     IEnumerator FishTimer()
     {
        yield return new WaitForSeconds(fishCooldown);
+       TurnLightsOff();
        currentSpeed = moveSpeed;
-       serialController.SendSerialMessage(allLightsOffName);
        Debug.Log("Speed Reset");
+    }
+
+    void TurnLightsOff()
+    {
+        serialController.SendSerialMessage(allLightsOffName);
     }
 }

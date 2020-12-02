@@ -1320,6 +1320,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3db705232cb01414a86c8f25b2a7b8b5, type: 3}
+--- !u!114 &137657335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1436406465536192207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67184341f81bbe9408c517d9e75bed28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &137917163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4077575373075891146, guid: 3db705232cb01414a86c8f25b2a7b8b5,
@@ -18030,7 +18042,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 137657335}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -18491,7 +18503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 137657335}
         m_MethodName: TryLevelAgain
         m_Mode: 1
         m_Arguments:
@@ -18650,7 +18662,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 137657335}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -18884,7 +18896,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 137657335}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:

@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 557962098947172928}
-  moveSpeed: 5
+  moveSpeed: 7.5
   gravity: -9.8
   jumpHeight: 0.5
   groundCheck: {fileID: 557962098704125858}
@@ -105,7 +105,6 @@ MonoBehaviour:
     m_Bits: 256
   speedBuff: 1.75
   speedDebuff: 0.75
-  nextSceneName: 
   fishCooldown: 5
 --- !u!1 &557962099998484406
 GameObject:

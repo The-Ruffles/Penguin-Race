@@ -110,6 +110,14 @@ MonoBehaviour:
   redLightName: R
   yellowLightName: Y
   allLightsOffName: O
+  speedBoostColor: {r: 1, g: 0, b: 0.11599016, a: 1}
+  normalSpeedColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+  speedDecreaseColor: {r: 0.972, g: 0.766, b: 0.02180491, a: 1}
+  speedBoostMessage: Speed Buff. Assisted by Good Fish
+  normalSpeedMessage: Normal Speed
+  speedDecreaseMessage: Speed Debuff. Poisoned by Bad Fish
+  speedMessage: {fileID: 0}
+  speedTypeDialogImage: {fileID: 0}
   fishCooldown: 5
 --- !u!1 &557962099998484406
 GameObject:

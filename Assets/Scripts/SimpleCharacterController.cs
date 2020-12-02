@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class SimpleCharacterController : MonoBehaviour
 {
@@ -17,6 +19,12 @@ public class SimpleCharacterController : MonoBehaviour
     Vector3 velocity;
     public float speedBuff, speedDebuff;
     public string redLightName, yellowLightName, allLightsOffName;
+    public Color speedBoostColor, normalSpeedColor, speedDecreaseColor;
+
+    public string speedBoostMessage, normalSpeedMessage, speedDecreaseMessage;
+    public TMP_Text speedMessage;
+    public Image speedTypeDialogImage;
+
     bool isGrounded;
     Vector3 startingPosition;
     GameObject fish, completedLevelPanel;
@@ -73,7 +81,7 @@ public class SimpleCharacterController : MonoBehaviour
         if (hit.gameObject.CompareTag ("Sea"))
                 {
                     //add buzzer here...
-                    TurnLightsOff();
+                    TurnSpeedEffectsOff();
                     currentSpeed = moveSpeed;
                     transform.position = startingPosition;
 
@@ -84,7 +92,7 @@ public class SimpleCharacterController : MonoBehaviour
                     Debug.Log("Speed buff");
                     fish = hit.gameObject;
                     //add lights here(idealy in function tho)...
-                    FishMechanic(speedBuff, redLightName);
+                    FishMechanic(speedBuff, redLightName, speedBoostMessage, speedBoostColor);
                 }
         
         if (hit.gameObject.CompareTag ("BadFish"))
@@ -92,7 +100,7 @@ public class SimpleCharacterController : MonoBehaviour
                     Debug.Log("Speed Debuff");
                     fish = hit.gameObject;
                     //add lights here(idealy in function tho)...
-                    FishMechanic(speedDebuff, yellowLightName);
+                    FishMechanic(speedDebuff, yellowLightName, speedDecreaseMessage, speedDecreaseColor);
                 }
 
         if (hit.gameObject.CompareTag ("Igloo"))
@@ -118,12 +126,14 @@ public class SimpleCharacterController : MonoBehaviour
         changed speed by the speed muliplier variable
         started cooldown till the effect wears off
     */
-    void FishMechanic(float speedMultiplier, string lightColour)
+    void FishMechanic(float speedMultiplier, string lightColour, string currentMessage, Color currentUIColor)
     {
         
         Destroy(fish);
-        TurnLightsOff();
+        TurnSpeedEffectsOff();
         //add lights here (prefered)
+        speedMessage.text = currentMessage;
+        speedTypeDialogImage.color = currentUIColor;
         serialController.SendSerialMessage(lightColour);
         currentSpeed = moveSpeed * speedMultiplier;
         StartCoroutine("FishTimer");
@@ -132,13 +142,15 @@ public class SimpleCharacterController : MonoBehaviour
     IEnumerator FishTimer()
     {
        yield return new WaitForSeconds(fishCooldown);
-       TurnLightsOff();
+       TurnSpeedEffectsOff();
        currentSpeed = moveSpeed;
        Debug.Log("Speed Reset");
     }
 
-    void TurnLightsOff()
+    void TurnSpeedEffectsOff()
     {
+        speedTypeDialogImage.color = normalSpeedColor;
+        speedMessage.text = normalSpeedMessage;
         serialController.SendSerialMessage(allLightsOffName);
     }
 }

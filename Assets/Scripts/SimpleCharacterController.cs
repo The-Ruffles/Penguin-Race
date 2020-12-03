@@ -91,7 +91,6 @@ public class SimpleCharacterController : MonoBehaviour
                 {
                     Debug.Log("Speed buff");
                     fish = hit.gameObject;
-                    //add lights here(idealy in function tho)...
                     FishMechanic(speedBuff, redLightName, speedBoostMessage, speedBoostColor);
                 }
         
@@ -99,7 +98,6 @@ public class SimpleCharacterController : MonoBehaviour
                 {
                     Debug.Log("Speed Debuff");
                     fish = hit.gameObject;
-                    //add lights here(idealy in function tho)...
                     FishMechanic(speedDebuff, yellowLightName, speedDecreaseMessage, speedDecreaseColor);
                 }
 

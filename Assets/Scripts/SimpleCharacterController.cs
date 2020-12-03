@@ -7,7 +7,7 @@ using TMPro;
 public class SimpleCharacterController : MonoBehaviour
 {
     // Variable list
-    public CharacterController controller;
+    public CharacterController cc;
     public SerialController serialController;
     public float moveSpeed = 10;
     float currentSpeed;
@@ -20,7 +20,6 @@ public class SimpleCharacterController : MonoBehaviour
     public float speedBuff, speedDebuff;
     public string redLightName, yellowLightName, allLightsOffName;
     public Color speedBoostColor, normalSpeedColor, speedDecreaseColor;
-
     public string buzzerActivate;
 
     public string speedBoostMessage, normalSpeedMessage, speedDecreaseMessage;
@@ -66,16 +65,16 @@ public class SimpleCharacterController : MonoBehaviour
         //if countdown timer is active, no movement allowed
         if (!levelManager.isCountdownTimerActive && !levelManager.levelFinished)
         {
-            controller.Move(move * currentSpeed * Time.deltaTime);
+            cc.Move(move * currentSpeed * Time.deltaTime);
 
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if ((Input.GetButtonDown("Jump")) && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
             }
         }
 
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        cc.Move(velocity * Time.deltaTime);
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

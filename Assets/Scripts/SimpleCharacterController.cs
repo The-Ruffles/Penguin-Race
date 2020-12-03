@@ -9,6 +9,7 @@ public class SimpleCharacterController : MonoBehaviour
     // Variable list
     public CharacterController cc;
     public SerialController serialController;
+    public ArduinoInputListener inputListener;
     public float moveSpeed = 10;
     float currentSpeed;
     public float gravity = -9.8f;
@@ -43,6 +44,7 @@ public class SimpleCharacterController : MonoBehaviour
     void Start()
     {
         serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
+        inputListener = GetComponent<ArduinoInputListener>();
         startingPosition = transform.position;
         currentSpeed = moveSpeed;
         levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
@@ -67,7 +69,7 @@ public class SimpleCharacterController : MonoBehaviour
         {
             cc.Move(move * currentSpeed * Time.deltaTime);
 
-            if ((Input.GetButtonDown("Jump")) && isGrounded)
+            if ((Input.GetButtonDown("Jump") || inputListener.btnInput == true) && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
             }
@@ -81,7 +83,7 @@ public class SimpleCharacterController : MonoBehaviour
     {
         if (hit.gameObject.CompareTag ("Sea"))
                 {
-                    BuzzerActivate();
+                    //BuzzerActivate();
                     TurnSpeedEffectsOff();
                     currentSpeed = moveSpeed;
                     transform.position = startingPosition;

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ArduinoInputListener : MonoBehaviour
 {
-    bool btnInput = false;
+    public bool btnInput = false;
+
     void OnMessageArrived(string msg)  
         {
             Debug.Log("Recieved Message: " + msg);
-            
+            //Debug.Log("jumping: " + btnInput);
             if (msg == "3")
             {
-                Debug.Log("Button Input");
+                Debug.Log("Unity knows 3 is pressed");
+                btnInput = true;
             }
+
         }
     
     void OnConnectionEvent(bool success)

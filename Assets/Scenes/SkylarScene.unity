@@ -16064,11 +16064,6 @@ PrefabInstance:
       propertyPath: buzzerOff
       value: Z
       objectReference: {fileID: 0}
-    - target: {fileID: 557962098947172931, guid: e540d7b85ab759b4280e57fcb44adb9b,
-        type: 3}
-      propertyPath: buzzerActivate
-      value: B
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e540d7b85ab759b4280e57fcb44adb9b, type: 3}
 --- !u!1 &1818738765

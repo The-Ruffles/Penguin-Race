@@ -82,7 +82,6 @@ public class SimpleCharacterController : MonoBehaviour
     {
         if (hit.gameObject.CompareTag ("Sea"))
                 {
-                    //add buzzer here...
                     BuzzerActivate();
                     TurnSpeedEffectsOff();
                     currentSpeed = moveSpeed;

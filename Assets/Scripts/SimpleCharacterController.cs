@@ -84,7 +84,6 @@ public class SimpleCharacterController : MonoBehaviour
                     TurnSpeedEffectsOff();
                     currentSpeed = moveSpeed;
                     transform.position = startingPosition;
-
                 }
 
         if (hit.gameObject.CompareTag ("GoodFish"))

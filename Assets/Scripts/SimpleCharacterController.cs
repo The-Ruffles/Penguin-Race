@@ -21,6 +21,8 @@ public class SimpleCharacterController : MonoBehaviour
     public string redLightName, yellowLightName, allLightsOffName;
     public Color speedBoostColor, normalSpeedColor, speedDecreaseColor;
 
+    public string buzzerActivate;
+
     public string speedBoostMessage, normalSpeedMessage, speedDecreaseMessage;
     public TMP_Text speedMessage;
     public Image speedTypeDialogImage;
@@ -81,6 +83,7 @@ public class SimpleCharacterController : MonoBehaviour
         if (hit.gameObject.CompareTag ("Sea"))
                 {
                     //add buzzer here...
+                    BuzzerActivate();
                     TurnSpeedEffectsOff();
                     currentSpeed = moveSpeed;
                     transform.position = startingPosition;
@@ -149,5 +152,10 @@ public class SimpleCharacterController : MonoBehaviour
         speedTypeDialogImage.color = normalSpeedColor;
         speedMessage.text = normalSpeedMessage;
         serialController.SendSerialMessage(allLightsOffName);
+    }
+
+    void BuzzerActivate()
+    {
+        serialController.SendSerialMessage(buzzerActivate);
     }
 }

@@ -16064,6 +16064,11 @@ PrefabInstance:
       propertyPath: buzzerOff
       value: Z
       objectReference: {fileID: 0}
+    - target: {fileID: 7365800912131452933, guid: e540d7b85ab759b4280e57fcb44adb9b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fff8b87932d5be0409eaf1e30ef30097, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e540d7b85ab759b4280e57fcb44adb9b, type: 3}
 --- !u!1 &1818738765

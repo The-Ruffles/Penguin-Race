@@ -16373,6 +16373,11 @@ PrefabInstance:
       propertyPath: buzzerOff
       value: Z
       objectReference: {fileID: 0}
+    - target: {fileID: 557962098947172931, guid: e540d7b85ab759b4280e57fcb44adb9b,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7365800912131452933, guid: e540d7b85ab759b4280e57fcb44adb9b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

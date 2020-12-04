@@ -18,7 +18,7 @@ public class SimpleCharacterController : MonoBehaviour
     public float groundDistance;
     public LayerMask groundMask;
     Vector3 velocity;
-    public float speedBuff, speedDebuff;
+    public float speedBuff, speedDebuff, rotationSpeed;
     public string redLightName, yellowLightName, allLightsOffName;
     public Color speedBoostColor, normalSpeedColor, speedDecreaseColor;
     public string buzzerActivate;
@@ -63,6 +63,18 @@ public class SimpleCharacterController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
+        
+        // Kyle do you know how to do this with "horizontal"?
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(transform.up*rotationSpeed*Time.deltaTime);
+        }
+
+        if(Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate((-1)*transform.up*rotationSpeed*Time.deltaTime);
+        }
         
         //if countdown timer is active, no movement allowed
         if (!levelManager.isCountdownTimerActive && !levelManager.levelFinished)

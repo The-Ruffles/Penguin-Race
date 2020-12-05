@@ -77,30 +77,15 @@ public class SimpleCharacterController : MonoBehaviour
             {
                 if (Input.GetButtonDown("Jump"))
                 {
-                    Debug.Log("Player Jumps weeeeeee!!!!!");
-                    velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
+                    Jump();
                 }
 
                 else if (btnInput == true)
                 {
-                    Debug.Log("Player Jumps weeeeeee!!!!!");
-                    velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                    Jump();
                     btnInput = false;
                 }
             }
-            
-            // if (btnInput == true && isGrounded) 
-            // {
-            //     Debug.Log("Player Jumps weeeeeee!!!!!");
-            //     velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
-            //     btnInput = false;
-            // }
-            
-            // if (/*Input.GetButtonDown("Jump")*/ btnInput == true && isGrounded)
-            // {
-            //     Debug.Log("Player Jumps weeeeeee!!!!!");
-            //     velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
-            // }
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -184,5 +169,11 @@ public class SimpleCharacterController : MonoBehaviour
     void BuzzerActivate()
     {
         serialController.SendSerialMessage(buzzerActivate);
+    }
+
+    void Jump()
+    {
+        Debug.Log("Player Jumps weeeeeee!!!!!");
+        velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
     }
 }

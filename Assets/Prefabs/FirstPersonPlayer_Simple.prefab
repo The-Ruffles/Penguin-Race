@@ -109,6 +109,7 @@ MonoBehaviour:
     m_Bits: 256
   speedBuff: 1.75
   speedDebuff: 0.75
+  rotationSpeed: 160
   redLightName: R
   yellowLightName: Y
   allLightsOffName: O

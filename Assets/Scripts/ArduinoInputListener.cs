@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ArduinoInputListener : MonoBehaviour
 {
-    public bool btnInput = false;
-
+    SimpleCharacterController simpleCharacterController;
+    void Start() 
+    {
+        simpleCharacterController = GetComponent<SimpleCharacterController>();
+    }
+    
     void OnMessageArrived(string msg)  
         {
             Debug.Log("Recieved Message: " + msg);
             //Debug.Log("jumping: " + btnInput);
-            if (msg == "3")
+            if(msg == "3")
             {
-                Debug.Log("Unity knows 3 is pressed");
-                btnInput = true;
+                simpleCharacterController.btnInput = true;
             }
 
         }

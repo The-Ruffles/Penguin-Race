@@ -9,7 +9,6 @@ public class SimpleCharacterController : MonoBehaviour
     // Variable list
     public CharacterController cc;
     public SerialController serialController;
-    public ArduinoInputListener inputListener;
     public float moveSpeed = 10;
     float currentSpeed;
     public float gravity = -9.8f;
@@ -33,6 +32,8 @@ public class SimpleCharacterController : MonoBehaviour
     LevelManager levelManager;
     public float fishCooldown = 5f;
 
+    public bool btnInput = false;
+
     /*  
         start method
 
@@ -44,11 +45,9 @@ public class SimpleCharacterController : MonoBehaviour
     void Start()
     {
         serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
-        inputListener = GetComponent<ArduinoInputListener>();
         startingPosition = transform.position;
         currentSpeed = moveSpeed;
         levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
-
     }
     void Update()
     {
@@ -63,28 +62,45 @@ public class SimpleCharacterController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        
-        // Kyle do you know how to do this with "horizontal"?
 
-        if(Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(transform.up*rotationSpeed*Time.deltaTime);
-        }
-
-        if(Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate((-1)*transform.up*rotationSpeed*Time.deltaTime);
-        }
-        
         //if countdown timer is active, no movement allowed
         if (!levelManager.isCountdownTimerActive && !levelManager.levelFinished)
         {
             cc.Move(move * currentSpeed * Time.deltaTime);
 
-            if ((Input.GetButtonDown("Jump") || inputListener.btnInput == true) && isGrounded)
+            if(Input.GetAxis("Horizontal") != 0)
             {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
+                transform.Rotate(transform.up * x * -rotationSpeed * Time.deltaTime);
             }
+
+            if (isGrounded)
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    Debug.Log("Player Jumps weeeeeee!!!!!");
+                    velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
+                }
+
+                else if (btnInput == true)
+                {
+                    Debug.Log("Player Jumps weeeeeee!!!!!");
+                    velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                    btnInput = false;
+                }
+            }
+            
+            // if (btnInput == true && isGrounded) 
+            // {
+            //     Debug.Log("Player Jumps weeeeeee!!!!!");
+            //     velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
+            //     btnInput = false;
+            // }
+            
+            // if (/*Input.GetButtonDown("Jump")*/ btnInput == true && isGrounded)
+            // {
+            //     Debug.Log("Player Jumps weeeeeee!!!!!");
+            //     velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); 
+            // }
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -139,8 +155,7 @@ public class SimpleCharacterController : MonoBehaviour
         started cooldown till the effect wears off
     */
     void FishMechanic(float speedMultiplier, string lightColour, string currentMessage, Color currentUIColor)
-    {
-        
+    { 
         Destroy(fish);
         TurnSpeedEffectsOff();
         //add lights here (prefered)

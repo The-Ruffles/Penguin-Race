@@ -16,6 +16,8 @@ public class SimpleCharacterController : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
+
+    Vector3 move;
     Vector3 velocity;
     public float speedBuff, speedDebuff, rotationSpeed;
     public string redLightName, yellowLightName, allLightsOffName;
@@ -57,12 +59,12 @@ public class SimpleCharacterController : MonoBehaviour
         {
             velocity.y = -2;
         }
-
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
+        
+        move = transform.right * x + transform.forward * z;
+        
         //if countdown timer is active, no movement allowed
         if (!levelManager.isCountdownTimerActive && !levelManager.levelFinished)
         {
@@ -169,6 +171,16 @@ public class SimpleCharacterController : MonoBehaviour
     void BuzzerActivate()
     {
         serialController.SendSerialMessage(buzzerActivate);
+    }
+
+    public void Movement(Vector2 input)
+    {
+        Debug.Log("Input: " + input);
+        move = transform.forward * -input.y;
+        transform.Rotate(transform.up * -input.x * -rotationSpeed * Time.deltaTime);
+        Debug.Log("move vector 3: " + move);
+        cc.Move(move * currentSpeed * Time.deltaTime);
+
     }
 
     void Jump()

@@ -99,7 +99,7 @@ MonoBehaviour:
   serialController: {fileID: 5320552021774930043, guid: a48f55061ed8ddf41b2c7aa8bf84fade,
     type: 3}
   inputListener: {fileID: 0}
-  moveSpeed: 7.5
+  moveSpeed: 8.5
   gravity: -9.8
   jumpHeight: 0.5
   groundCheck: {fileID: 557962098704125858}
@@ -123,6 +123,7 @@ MonoBehaviour:
   speedMessage: {fileID: 0}
   speedTypeDialogImage: {fileID: 0}
   fishCooldown: 5
+  btnInput: 0
 --- !u!114 &5109278762095118496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316f00f51aa53b54995f119858fcffed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnInput: 0
+  xInput: 0
+  yInput: 0
 --- !u!1001 &5620285726020003792
 PrefabInstance:
   m_ObjectHideFlags: 0

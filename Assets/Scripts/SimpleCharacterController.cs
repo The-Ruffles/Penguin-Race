@@ -9,6 +9,7 @@ public class SimpleCharacterController : MonoBehaviour
     // Variable list
     public CharacterController cc;
     public SerialController serialController;
+    public ArduinoInputListener inputListener;
     public float moveSpeed = 10;
     float currentSpeed;
     public float gravity = -9.8f;
@@ -50,6 +51,7 @@ public class SimpleCharacterController : MonoBehaviour
         startingPosition = transform.position;
         currentSpeed = moveSpeed;
         levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
+        inputListener = GetComponent<ArduinoInputListener>();
     }
     void Update()
     {
@@ -59,21 +61,18 @@ public class SimpleCharacterController : MonoBehaviour
         {
             velocity.y = -2;
         }
-        
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         
         move = transform.right * x + transform.forward * z;
         
+        move = (transform.right * -inputListener.xInput + transform.forward * -inputListener.yInput).normalized;
+       
         //if countdown timer is active, no movement allowed
         if (!levelManager.isCountdownTimerActive && !levelManager.levelFinished)
         {
             cc.Move(move * currentSpeed * Time.deltaTime);
-
-            if(Input.GetAxis("Horizontal") != 0)
-            {
-                transform.Rotate(transform.up * x * -rotationSpeed * Time.deltaTime);
-            }
 
             if (isGrounded)
             {
@@ -173,15 +172,14 @@ public class SimpleCharacterController : MonoBehaviour
         serialController.SendSerialMessage(buzzerActivate);
     }
 
-    public void Movement(Vector2 input)
-    {
-        Debug.Log("Input: " + input);
-        move = transform.forward * -input.y;
-        transform.Rotate(transform.up * -input.x * -rotationSpeed * Time.deltaTime);
-        Debug.Log("move vector 3: " + move);
-        cc.Move(move * currentSpeed * Time.deltaTime);
-
-    }
+    // public void Movement(Vector2 input)
+    // {
+    //     Debug.Log("Input: " + input);
+    //     move = transform.forward * -input.y;
+    //     //transform.Rotate(transform.up * -input.x * -rotationSpeed * Time.deltaTime);
+    //     Debug.Log("move vector 3: " + move);
+    //     cc.Move(move * currentSpeed * Time.deltaTime);
+    // }
 
     void Jump()
     {

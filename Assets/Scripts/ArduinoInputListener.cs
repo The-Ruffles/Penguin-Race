@@ -5,12 +5,11 @@ using UnityEngine;
 public class ArduinoInputListener : MonoBehaviour
 {
     SimpleCharacterController simpleCharacterController;
-    Vector2 moveJoystick;
+    public float xInput, yInput;
     void Start() 
     {
         simpleCharacterController = GetComponent<SimpleCharacterController>();
-    }
-    
+    }  
     void OnMessageArrived(string msg)  
         {
             Debug.Log("Recieved Message: " + msg);
@@ -22,35 +21,31 @@ public class ArduinoInputListener : MonoBehaviour
 
             if(msg == "W")
             {
-                moveJoystick = new Vector2(0, 1);
-                simpleCharacterController.Movement(moveJoystick);
+                yInput = 1;
                 Debug.Log("Forward");
             }
 
             else if(msg == "A")
             {
-                moveJoystick = new Vector2(-1,0);
-                simpleCharacterController.Movement(moveJoystick);
+                xInput = -1;
                 Debug.Log("Left");
             }
 
             else if(msg == "S")
             {
-                moveJoystick = new Vector2(0, -1);
-                simpleCharacterController.Movement(moveJoystick);
+                yInput = -1;
                 Debug.Log("Back");
             }
 
             else if(msg == "D")
             {
-                moveJoystick = new Vector2(1, 0);
-                simpleCharacterController.Movement(moveJoystick);
+                xInput = 1;
                 Debug.Log("Right");
             }
 
             else{
-                moveJoystick = Vector2.zero;
-                simpleCharacterController.Movement(moveJoystick);
+                xInput = 0;
+                yInput = 0;
                 Debug.Log("NoInput");
             }
         }

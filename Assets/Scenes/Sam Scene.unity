@@ -990,6 +990,7 @@ GameObject:
   - component: {fileID: 3940709458656856685}
   - component: {fileID: 5254264095245011042}
   - component: {fileID: 8341512754280296854}
+  - component: {fileID: 1172626985920424545}
   m_Layer: 0
   m_Name: PlatformRect_001
   m_TagString: Untagged
@@ -997,6 +998,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1172626985920424545
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172626985920424544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7036025590884325543, guid: 1d2760c3c7c01164db75fd5bb0670efc, type: 3}
 --- !u!1 &1212814704262761482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,7 +1204,7 @@ GameObject:
   - component: {fileID: 2514346429074778120}
   m_Layer: 0
   m_Name: PlatformBreak_001
-  m_TagString: Untagged
+  m_TagString: PlatformDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1512,6 +1527,7 @@ GameObject:
   - component: {fileID: 5048959729551843551}
   - component: {fileID: 6098651868485555767}
   - component: {fileID: 2185543524318917842}
+  - component: {fileID: 2398986248362444502}
   m_Layer: 0
   m_Name: PlatformCyl_001
   m_TagString: Untagged
@@ -1519,6 +1535,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &2398986248362444502
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398986248362444501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -737443846856565601, guid: 1d2760c3c7c01164db75fd5bb0670efc, type: 3}
 --- !u!33 &2406706807143009561
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2865,6 +2895,8 @@ GameObject:
   - component: {fileID: 8353074741789297257}
   - component: {fileID: 5495352246456785163}
   - component: {fileID: 196746523882641620}
+  - component: {fileID: 5114475726175217792}
+  - component: {fileID: 5114475726175217791}
   m_Layer: 0
   m_Name: Penguin
   m_TagString: Untagged
@@ -2872,6 +2904,60 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5114475726175217791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5114475726175217790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b8b1d49697ab14c9c155f48f0a8d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cc: {fileID: 0}
+  serialController: {fileID: 0}
+  inputListener: {fileID: 0}
+  moveSpeed: 10
+  gravity: -9.8
+  jumpHeight: 33
+  groundCheck: {fileID: 0}
+  groundDistance: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  speedBuff: 0
+  speedDebuff: 0
+  rotationSpeed: 0
+  redLightName: 
+  yellowLightName: 
+  allLightsOffName: 
+  speedBoostColor: {r: 0, g: 0, b: 0, a: 0}
+  normalSpeedColor: {r: 0, g: 0, b: 0, a: 0}
+  speedDecreaseColor: {r: 0, g: 0, b: 0, a: 0}
+  buzzerActivate: 
+  speedBoostMessage: 
+  normalSpeedMessage: 
+  speedDecreaseMessage: 
+  speedMessage: {fileID: 0}
+  speedTypeDialogImage: {fileID: 0}
+  fishCooldown: 5
+  btnInput: 0
+--- !u!64 &5114475726175217792
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5114475726175217790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6017703263970115434, guid: 1d2760c3c7c01164db75fd5bb0670efc, type: 3}
 --- !u!4 &5167722864718176344
 Transform:
   m_ObjectHideFlags: 0
@@ -3360,6 +3446,7 @@ GameObject:
   - component: {fileID: 6444226720513312339}
   - component: {fileID: 4576673435804011544}
   - component: {fileID: 4741049646547786038}
+  - component: {fileID: 5788336441087962053}
   m_Layer: 0
   m_Name: StartZone
   m_TagString: Untagged
@@ -3367,6 +3454,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &5788336441087962053
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788336441087962052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3894042023684744527, guid: 1d2760c3c7c01164db75fd5bb0670efc, type: 3}
 --- !u!33 &5910068552158559741
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3794,6 +3895,7 @@ GameObject:
   - component: {fileID: 8523046604235698400}
   - component: {fileID: 5963404561689675641}
   - component: {fileID: 698031195508871024}
+  - component: {fileID: 6773913014352159356}
   m_Layer: 0
   m_Name: Igloo001
   m_TagString: Untagged
@@ -3801,6 +3903,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &6773913014352159356
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773913014352159355}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5447614995803641006, guid: 1d2760c3c7c01164db75fd5bb0670efc, type: 3}
 --- !u!33 &6876371015139545416
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4677,7 +4793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5114475726175217790}
   m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: 0.6532815, w: -0.27059805}
-  m_LocalPosition: {x: -0.33691406, y: -11.496887, z: 44.58612}
+  m_LocalPosition: {x: 6.01, y: -10.31, z: -37.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1019333493}

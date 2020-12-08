@@ -97,6 +97,7 @@ public class SimpleCharacterController : MonoBehaviour
     {
         if (hit.gameObject.CompareTag ("Sea"))
                 {
+                    //please rememeber to activate this libe before build/ or test
                     //BuzzerActivate();
                     TurnSpeedEffectsOff();
                     currentSpeed = moveSpeed;

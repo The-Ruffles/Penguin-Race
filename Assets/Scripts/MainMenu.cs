@@ -27,17 +27,17 @@ public class MainMenu : MonoBehaviour
 
     public void AinohaLevel()
     {
-        SceneManager.LoadScene("Ainoha Scene");
+        SceneManager.LoadScene("AinohaScene");
     }
 
     public void RyanLevel()
     {
-        SceneManager.LoadScene("Ryan Scene");
+        SceneManager.LoadScene("RyanScene");
     }
 
     public void SamLevel()
     {
-        SceneManager.LoadScene("Sam Scene");
+        SceneManager.LoadScene("SamScene");
     }
     
     public void Quit()

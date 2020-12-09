@@ -653,6 +653,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae106ca779e01c4cadd72bc6ac36acf, type: 3}
+--- !u!114 &371116058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2972613323154710042, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 371116057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371116059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2972613321695415721, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 371116057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &371116060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1116591238550624272, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 371116057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &371116061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1116591239355478788, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 371116057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &371116062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1116591238604177791, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 371116057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &371116063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1116591238873984767, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 371116057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371116064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1116591238875391453, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 371116057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &408598211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1719,6 +1785,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+        type: 3}
+      propertyPath: countdowntimer_TMP
+      value: 
+      objectReference: {fileID: 371116063}
+    - target: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+        type: 3}
+      propertyPath: preGamePanel
+      value: 
+      objectReference: {fileID: 371116062}
+    - target: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+        type: 3}
+      propertyPath: ranOutOfTimePanel
+      value: 
+      objectReference: {fileID: 371116061}
+    - target: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+        type: 3}
+      propertyPath: completedLevelPanel
+      value: 
+      objectReference: {fileID: 371116060}
+    - target: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+        type: 3}
+      propertyPath: levelTimer_TMP
+      value: 
+      objectReference: {fileID: 371116064}
     - target: {fileID: 1436406465440048125, guid: f09acc8c0e516b84589fcafdb8068d2a,
         type: 3}
       propertyPath: m_Name
@@ -2061,6 +2152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Igloo(Ryan)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a394f7ec386ed540aa751acf417d497,
+        type: 3}
+      propertyPath: m_TagString
+      value: Igloo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a394f7ec386ed540aa751acf417d497, type: 3}
@@ -2958,11 +3054,13 @@ MonoBehaviour:
   normalSpeedColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   speedDecreaseColor: {r: 0.972, g: 0.766, b: 0.02180491, a: 1}
   buzzerActivate: B
+  splashAudio: {fileID: 0}
+  iceCracking: {fileID: 0}
   speedBoostMessage: Speed Buff. Assisted by Good Fish
   normalSpeedMessage: Normal Speed
   speedDecreaseMessage: Speed Debuff. Poisoned by Bad Fish
-  speedMessage: {fileID: 0}
-  speedTypeDialogImage: {fileID: 0}
+  speedMessage: {fileID: 371116059}
+  speedTypeDialogImage: {fileID: 371116058}
   fishCooldown: 5
   btnInput: 0
 --- !u!1 &8604581593542213163

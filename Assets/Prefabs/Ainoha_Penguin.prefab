@@ -47,12 +47,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.82
-  m_Radius: 1.2
+  m_Radius: 1.45
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -0.08, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &5148033317515694411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   gravity: -9.8
   jumpHeight: 0.5
   groundCheck: {fileID: 5148033317758743722}
-  groundDistance: 0.4
+  groundDistance: 1
   groundMask:
     serializedVersion: 2
     m_Bits: 256
@@ -87,6 +87,8 @@ MonoBehaviour:
   normalSpeedColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   speedDecreaseColor: {r: 0.972, g: 0.766, b: 0.02180491, a: 1}
   buzzerActivate: B
+  splashAudio: {fileID: 0}
+  iceCracking: {fileID: 0}
   speedBoostMessage: Speed Buff. Assisted by Good Fish
   normalSpeedMessage: Normal Speed
   speedDecreaseMessage: Speed Debuff. Poisoned by Bad Fish

@@ -67,7 +67,10 @@ public class SimpleCharacterController : MonoBehaviour
         
         move = transform.right * x + transform.forward * z;
         
-        move = (transform.right * -inputListener.xInput + transform.forward * -inputListener.yInput).normalized;
+        if (inputListener.xInput != 0 || inputListener.yInput != 0)
+        {
+            move = (transform.right * -inputListener.xInput + transform.forward * -inputListener.yInput).normalized;
+        }
        
         //if countdown timer is active, no movement allowed
         if (!levelManager.isCountdownTimerActive && !levelManager.levelFinished)

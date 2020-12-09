@@ -1551,6 +1551,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 71360198}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &77025352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50f7365adfada99409f7b4cd0dcf0e15,
+    type: 3}
+  m_PrefabInstance: {fileID: 548284837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &77025353
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77025352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &77991802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10470,6 +10490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Igloo(Ainoha)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50f7365adfada99409f7b4cd0dcf0e15,
+        type: 3}
+      propertyPath: m_TagString
+      value: Igloo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50f7365adfada99409f7b4cd0dcf0e15, type: 3}

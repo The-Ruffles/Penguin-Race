@@ -24,7 +24,8 @@ public class SimpleCharacterController : MonoBehaviour
     public string redLightName, yellowLightName, allLightsOffName;
     public Color speedBoostColor, normalSpeedColor, speedDecreaseColor;
     public string buzzerActivate;
-
+    public GameObject splashAudio, iceCracking;
+    
     public string speedBoostMessage, normalSpeedMessage, speedDecreaseMessage;
     public TMP_Text speedMessage;
     public Image speedTypeDialogImage;
@@ -102,6 +103,7 @@ public class SimpleCharacterController : MonoBehaviour
                 {
                     //please rememeber to activate this libe before build/ or test
                     //BuzzerActivate();
+                    splashAudio.GetComponent<AudioSource>().Play();
                     TurnSpeedEffectsOff();
                     currentSpeed = moveSpeed;
                     transform.position = startingPosition;
@@ -129,6 +131,7 @@ public class SimpleCharacterController : MonoBehaviour
                 }
         if (hit.gameObject.CompareTag("PlatformDestroy"))
         {
+            iceCracking.GetComponent<AudioSource>().Play();
             StartCoroutine("DelayedDestroy", hit.gameObject);
         }      
     }

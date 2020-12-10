@@ -12612,6 +12612,11 @@ PrefabInstance:
       propertyPath: countdowntimer_TMP
       value: 
       objectReference: {fileID: 899988375}
+    - target: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+        type: 3}
+      propertyPath: levelTime
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 1436406465440048125, guid: f09acc8c0e516b84589fcafdb8068d2a,
         type: 3}
       propertyPath: m_Name

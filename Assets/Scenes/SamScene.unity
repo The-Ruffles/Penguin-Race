@@ -1070,6 +1070,18 @@ Transform:
   m_Father: {fileID: 855856278}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &162555248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2057475504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67184341f81bbe9408c517d9e75bed28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &181217248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6462,14 +6474,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1116591238063320125, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116591238063320125, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1436406465440048124, guid: f09acc8c0e516b84589fcafdb8068d2a,
-        type: 3}
+      objectReference: {fileID: 162555248}
     - target: {fileID: 1116591238063320125, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TryLevelAgain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116591238063320125, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1116591238230423655, guid: 9ae106ca779e01c4cadd72bc6ac36acf,
         type: 3}
@@ -10900,6 +10921,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5320552021774930043, guid: a48f55061ed8ddf41b2c7aa8bf84fade,
+        type: 3}
+      propertyPath: messageListener
+      value: 
+      objectReference: {fileID: 557962100005595186}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a48f55061ed8ddf41b2c7aa8bf84fade, type: 3}
 --- !u!1 &1565261114
@@ -33073,7 +33099,6 @@ GameObject:
   - component: {fileID: 5495352246456785163}
   - component: {fileID: 196746523882641620}
   - component: {fileID: 5114475726175217792}
-  - component: {fileID: 5114475726175217791}
   m_Layer: 0
   m_Name: Penguin
   m_TagString: Untagged
@@ -33081,48 +33106,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5114475726175217791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5114475726175217790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b8b1d49697ab14c9c155f48f0a8d34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cc: {fileID: 0}
-  serialController: {fileID: 0}
-  inputListener: {fileID: 0}
-  moveSpeed: 10
-  gravity: -9.8
-  jumpHeight: 33
-  groundCheck: {fileID: 0}
-  groundDistance: 0
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  speedBuff: 0
-  speedDebuff: 0
-  rotationSpeed: 0
-  redLightName: 
-  yellowLightName: 
-  allLightsOffName: 
-  speedBoostColor: {r: 0, g: 0, b: 0, a: 0}
-  normalSpeedColor: {r: 0, g: 0, b: 0, a: 0}
-  speedDecreaseColor: {r: 0, g: 0, b: 0, a: 0}
-  buzzerActivate: 
-  splashAudio: {fileID: 0}
-  iceCracking: {fileID: 0}
-  speedBoostMessage: 
-  normalSpeedMessage: 
-  speedDecreaseMessage: 
-  speedMessage: {fileID: 0}
-  speedTypeDialogImage: {fileID: 0}
-  fishCooldown: 5
-  btnInput: 0
 --- !u!64 &5114475726175217792
 MeshCollider:
   m_ObjectHideFlags: 0

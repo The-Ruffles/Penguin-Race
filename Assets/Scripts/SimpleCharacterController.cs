@@ -129,6 +129,12 @@ public class SimpleCharacterController : MonoBehaviour
                     //calls method
                     levelManager.LevelFinished(levelManager.completedLevelPanel);
                 }
+
+        if (hit.gameObject.CompareTag ("Final_Igloo"))
+                {
+                    SceneManager.LoadScene("EndMenu");
+                }
+
         if (hit.gameObject.CompareTag("PlatformDestroy"))
         {
             iceCracking.GetComponent<AudioSource>().Play();

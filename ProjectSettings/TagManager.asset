@@ -10,6 +10,7 @@ TagManager:
   - BadFish
   - Igloo
   - LevelManager
+  - Final_Igloo
   layers:
   - Default
   - TransparentFX

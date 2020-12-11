@@ -4433,6 +4433,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3757031533175766990, guid: f41bc56809045874aba9342ea9395f8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f41bc56809045874aba9342ea9395f8f, type: 3}
 --- !u!1 &658812712
@@ -45638,7 +45643,7 @@ GameObject:
   - component: {fileID: 8723035517119704184}
   m_Layer: 0
   m_Name: Igloo
-  m_TagString: Igloo
+  m_TagString: Final_Igloo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
